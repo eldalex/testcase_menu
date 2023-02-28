@@ -18,7 +18,8 @@ def draw_menu(name='head', return_to_main=True, test=False):
                 html += draw_menu(name=i.name, return_to_main=False)
         else:
             html += f'<li class="list-group-item"><a href={item.url}>{item.name}</a></li>'
-    if item.children.exists():
-        html += '</ul></li>'
+
+        if item.children.exists():
+            html += '</ul></li>'
     if return_to_main: html += '</ul>'
     return format_html(html)
